@@ -77,7 +77,7 @@ def test(spark):
     srcdf = sc.textFile('predict.csv').map(parse_line)
     testing = srcdf.toDF()
 
-    model = DecisionTreeClassificationModel.load('wzmswdeztree')
+    model = DecisionTreeClassificationModel.load('Bayes20000')
 
     testWordsData = tokenizer.transform(testing)
     testFeaturizedData = hashingTF.transform(testWordsData)
@@ -98,7 +98,7 @@ def test(spark):
 
 
 if __name__ == "__main__":
-    spark = SparkSession.builder.master("local[*]").appName("FiratApp").getOrCreate()
+    spark = SparkSession.builder.master("local[*]").appName("Bigdata").getOrCreate()
 
     train(spark)
 
